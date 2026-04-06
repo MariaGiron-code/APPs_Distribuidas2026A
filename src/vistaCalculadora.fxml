@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controlador"
+      padding="20"
+      spacing="10">
+
+    <Label text="Número 1:" />
+    <TextField fx:id="txtNumero1" promptText="Ingrese el primer número" />
+
+    <Label text="Número 2:" />
+    <TextField fx:id="txtNumero2" promptText="Ingrese el segundo número" />
+
+    <Label text="Resultado:" />
+    <TextField fx:id="txtResultado" editable="false" promptText="Resultado" />
+
+    <Button text="Sumar"       onAction="#sumar"       maxWidth="Infinity" />
+    <Button text="Restar"      onAction="#restar"      maxWidth="Infinity" />
+    <Button text="Multiplicar" onAction="#multiplicar" maxWidth="Infinity" />
+    <Button text="Dividir"     onAction="#dividir"     maxWidth="Infinity" />
+    <Button text="Limpiar"     onAction="#limpiar"     maxWidth="Infinity" />
+
+</VBox>
