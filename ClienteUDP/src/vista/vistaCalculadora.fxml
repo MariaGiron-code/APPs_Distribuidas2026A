@@ -6,6 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import java.awt.Insets?>
+<?import java.awt.TextField?>
+<?import java.awt.Button?>
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controller.ClienteController"
       spacing="10">
@@ -27,6 +30,6 @@
     <Button text="Restar"      onAction="#restar"      maxWidth="Infinity" />
     <Button text="Multiplicar" onAction="#multiplicar" maxWidth="Infinity" />
     <Button text="Dividir"     onAction="#dividir"     maxWidth="Infinity" />
-    <Button text="Limpiar"     onAction="#limpiar"     maxWidth="Infinity" />
+    <Button text="Limpiar" onAction="#limpiar" maxWidth="Infinity" />
 
 </VBox>

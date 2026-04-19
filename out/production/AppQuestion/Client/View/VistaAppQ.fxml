@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="15" style="-fx-background-color: #8FDBFA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller.UserController" prefWidth="600" prefHeight="450">
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20" />
+   </padding>
+   
+   <Label text="RESPONDA LA PREGUNTA" textAlignment="CENTER" textFill="#3048a9">
+      <font>
+         <Font name="System Bold Italic" size="18.0" />
+      </font>
+   </Label>
+   
+   <Label fx:id="lblPregunta" alignment="CENTER" text="Qué es UDP?" textAlignment="CENTER" wrapText="true" prefWidth="500">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font>
+   </Label>
+   
+   <VBox spacing="10" alignment="CENTER" prefWidth="400">
+      <Button fx:id="btnOpcionA" mnemonicParsing="false" onAction="#responderPregunta" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #AFB6BD;" text="A) Un protocolo" />
+      <Button fx:id="btnOpcionB" mnemonicParsing="false" onAction="#responderPregunta" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #AFB6BD;" text="B) Un prefijo de red" />
+      <Button fx:id="btnOpcionC" mnemonicParsing="false" onAction="#responderPregunta" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #AFB6BD;" text="C) Técnica de comunicación en aplicaciones" />
+      <Button fx:id="btnOpcionD" mnemonicParsing="false" onAction="#responderPregunta" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #AFB6BD;" text="D) Un protocolo de comunicación usado en APPs cliente-servidor" />
+   </VBox>
+   
+   <Label fx:id="lblEstado" alignment="CENTER" text="Estado: Esperando que el usuario seleccione una respuesta..." textAlignment="CENTER" prefWidth="400">
+      <font>
+         <Font name="System Italic" size="12.0" />
+      </font>
+   </Label>
+   
+   <HBox alignment="CENTER">
+      <Button fx:id="btnNextPregunta" mnemonicParsing="false" onAction="#siguiente" text="Siguiente" />
+   </HBox>
+</VBox>
