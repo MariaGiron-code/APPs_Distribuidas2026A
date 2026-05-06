@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controladores.FormController"
+      prefWidth="370" prefHeight="380">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Título -->
+    <Label text="Sistema de Timbres" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- Campo de nombre -->
+    <Label text="Nombre del empleado:"/>
+    <TextField fx:id="txtNombre" promptText="Ingrese su nombre"/>
+
+    <!-- Botones de timbre -->
+    <Label text="Registrar timbre:"/>
+    <HBox spacing="10">
+        <Button text="Ingreso"           onAction="#handleIngreso"         prefWidth="155"/>
+        <Button text="Salida almuerzo"   onAction="#handleSalidaAlmuerzo"  prefWidth="155"/>
+    </HBox>
+    <HBox spacing="10">
+        <Button text="Entrada almuerzo"  onAction="#handleEntradaAlmuerzo" prefWidth="155"/>
+        <Button text="Salida"            onAction="#handleSalida"          prefWidth="155"/>
+    </HBox>
+
+    <!-- Botón de consulta -->
+    <Button text="Consultar mis timbres del día" onAction="#handleConsultar"
+            prefWidth="330"/>
+
+    <!-- Resultado de la consulta -->
+    <Label text="Resultado:"/>
+    <TextArea fx:id="txtResultado"
+              editable="false"
+              wrapText="true"
+              prefHeight="100"
+              prefWidth="330"
+              style="-fx-font-size: 13px;"/>
+
+</VBox>
