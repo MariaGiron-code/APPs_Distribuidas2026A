@@ -1,0 +1,35 @@
+services:
+  server1:
+    build: ./app
+    container_name: servidor1
+    hostname: servidor1
+    volumes:
+      - ./app/provincias.db:/app/provincias.db:ro
+    networks:
+      - balanceador-net
+
+  server2:
+    build: ./app
+    container_name: servidor2
+    hostname: servidor2
+    volumes:
+      - ./app/provincias.db:/app/provincias.db:ro
+    networks:
+      - balanceador-net
+
+  nginx:
+    image: nginx:alpine # Se utiliza la imagen oficial de Nginx basada en Alpine Linux, que es ligera y eficiente.
+    container_name: balanceador
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on: # Indica que el contenedor de Nginx depende de los contenedores de servidor1 y servidor2, asegurando que estos estén en funcionamiento antes de iniciar Nginx.
+      - server1
+      - server2
+    networks:
+      - balanceador-net
+
+networks:
+  balanceador-net:
+    driver: bridge # El driver bridge es el predeterminado y permite la comunicación entre contenedores en la misma red.
