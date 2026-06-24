@@ -348,5 +348,72 @@ networks:
 
 ---
 
+---
+
+## APIs y fuentes de datos utilizadas
+
+### 🗺️ Leaflet.js — Librería de mapas interactivos
+
+**Sitio oficial:** https://leafletjs.com  
+**Versión usada:** 1.9.4  
+**Tipo:** Open Source — sin API Key, sin registro, sin costo
+
+Leaflet es una librería JavaScript de código abierto para mapas interactivos. Se integra directamente en HTML mediante etiquetas `<script>` y `<link>`, sin necesidad de crear cuentas ni gestionar claves de acceso.
+
+Se usó para:
+- Renderizar el mapa centrado en Ecuador
+- Colocar un marcador (`L.marker`) por cada provincia
+- Mostrar un popup con los datos de la provincia al hacer clic en el marcador
+
+Cómo se incluyó en el proyecto (sin instalación, directo desde CDN):
+```html
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+```
+
+Fragmento de uso en `index.html`:
+```javascript
+const map = L.map('map').setView([-1.83, -78.18], 7); // Centro de Ecuador, zoom 7
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+L.marker([latitud, longitud])
+    .addTo(map)
+    .bindPopup(`<b>Provincia</b><br>Capital: ...`);
+```
+
+---
+
+### 🌍 OpenStreetMap — Proveedor de teselas (tiles) del mapa
+
+**Sitio oficial:** https://www.openstreetmap.org  
+**Tipo:** Datos geográficos abiertos — sin API Key, sin costo
+
+OpenStreetMap (OSM) es un proyecto colaborativo que proporciona cartografía libre del mundo. Leaflet lo usa como proveedor de las imágenes del mapa (llamadas "tiles" o teselas) — cada pequeña imagen cuadrada que forma el mapa visible en pantalla proviene de los servidores de OSM.
+
+No requiere ninguna configuración adicional más allá de la URL del tile layer ya incluida en el código de Leaflet.
+
+> **Nota:** A diferencia de Google Maps, OpenStreetMap no requiere tarjeta de crédito, cuenta de desarrollador ni API Key de ningún tipo, lo que lo hace ideal para proyectos académicos.
+
+---
+
+## Datos de las provincias del Ecuador
+
+**Fuente de referencia:** Instituto Nacional de Estadística y Censos del Ecuador (INEC)  
+**Sitio oficial:** https://www.ecuadorencifras.gob.ec  
+
+Los datos almacenados en la base de datos `provincias.db` corresponden a las **24 provincias del Ecuador** e incluyen:
+
+| Campo | Fuente |
+|---|---|
+| Nombre y capital | División político-administrativa oficial del Ecuador |
+| Área (km²) | Datos territoriales de referencia pública |
+| Población | Proyecciones referenciales basadas en datos del INEC |
+| Latitud y longitud | Coordenadas geográficas de las capitales provinciales |
+
+> Los valores de población y área son de referencia para fines académicos y demostrativos. Para datos oficiales actualizados consultar directamente el portal del INEC: https://www.ecuadorencifras.gob.ec/estadisticas/
+
 *Tarea#3 · EPN 2026-A*
 *María Girón -- Tecnología Superior en Desarrollo de Software*
